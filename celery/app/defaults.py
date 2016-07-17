@@ -226,6 +226,7 @@ NAMESPACES = {
     },
     'SERVER_EMAIL': Option('celery@localhost'),
     'ADMINS': Option((), type='tuple'),
+    'LOGGING': {'version': 1},
 }
 
 
