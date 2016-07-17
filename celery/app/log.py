@@ -17,6 +17,7 @@ import os
 import sys
 
 from logging.handlers import WatchedFileHandler
+from logging.config import dictConfig
 
 from kombu.log import NullHandler
 from kombu.utils.encoding import set_default_encoding_file
@@ -76,6 +77,7 @@ class Logging(object):
             CELERY_LOG_LEVEL=str(loglevel) if loglevel else '',
             CELERY_LOG_FILE=str(logfile) if logfile else '',
         )
+        dictConfig(self.app.conf.LOGGING)
         return handled
 
     def redirect_stdouts(self, loglevel=None, name='celery.redirected'):
